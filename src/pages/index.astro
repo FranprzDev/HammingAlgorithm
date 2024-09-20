@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout title="">
+  <main class="max-w-4xl text-center ">
+    <h1 class="text-5xl text-gradient py-5">Algoritmo de Hamming</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <Card
+        title="¿Qué es?"
+        text="El algoritmo de Hamming es un método de detección y corrección de errores en la transmisión de datos digitales; se encuentra dentro de los métodos FEC (Forward Error Connection)"
+      />
+      <Card
+        title="¿Cómo funciona?"
+        text="Específicamente divide el código en bloques de bits de tamaño fijo y se agregan bits redundantes para la correción de errores"
+		link="/funcionamiento"
+      />
+      <Card
+        title="¿Cuál es su limitación?"
+        text="Las limitaciones están dadas por la Distancia Hamming."
+        link="/distanciahamming"
+      />
+      <Card
+        title="Algoritmo"
+        items={[
+			{
+				type: "Ventajas",
+				link: "/ventajas"
+			},
+			{
+				type: "Desventajas",
+				link: "/desventajas"
+			},
+			{
+				type: "Complejidad Algoritmica",
+				link: "/complejidad"
+			}
+        ]}
+      />
+    </div>
+    <section class="py-5">
+      <a class="text-5xl rounded text-gradient p-4 cursor-pointer" href="/hamming">Demostración</a>
+    </section>
+  </main>
+</Layout>

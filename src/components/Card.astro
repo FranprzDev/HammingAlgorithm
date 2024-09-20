@@ -1,0 +1,60 @@
+---
+
+type Items = {
+	type: string;
+	link: string;
+};
+
+interface Props {
+	title: string;
+	text?: string;
+	items?: Items[];
+	link?: string;
+}
+
+const { title, text, items, link } = Astro.props;
+
+---
+
+<div class="card flex flex-col glass-effect rounded-lg p-6 color-shift transition-all duration-300 hover:scale-105 h-full">
+	<h2 class="text-2xl font-semibold mb-4">{title}</h2>
+	{
+		text && (
+			<p class="text-gray-300 text-start">{text}</p>
+		)
+	}
+	{
+		items && items.length > 0 && (
+			<ul class="text-gray-300 list-disc list-inside text-start">
+				{items.map((item) => (
+					<li class="hover:text-indigo-300">
+						<a href={item.link}>{item.type}</a>
+					</li>
+				))}
+			</ul>
+		)
+	}
+	<div class="mt-auto text-end">
+		{
+			link && (
+				<a href={link} class="text-slate-300 hover:underline">Leer más</a>
+			)
+		}
+	</div>
+</div>
+
+<style>
+	.card {
+		background-size: 400%;
+		background-position: 0%;
+		transition: all 0.3s ease;
+	}
+	.card:hover {
+		background-position: 100%;
+	}
+	.glass-effect {
+		backdrop-filter: blur(10px);
+		background-color: rgba(123, 24, 148, 0.1);
+		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	}
+</style>
