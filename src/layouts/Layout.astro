@@ -18,67 +18,24 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen flex flex-col">
-    <nav class="flex w-100 justify-center items-center text-5xl pt-2">
-      <a href="/">
+  <body class="min-h-screen flex flex-col bg-[#13151a] text-white">
+    <nav class="flex w-full justify-center items-center text-5xl pt-1">
+      <a href="/" class="m-2">
         <Home class="text-white text-5xl" />
       </a>
     </nav>
-    <slot />
-    <footer
-      class="mt-12 text-indigo-300 text-sm text-center fixed bottom-1 w-full"
+    <main
+      class="mx-auto w-[800px] max-w-[calc(100%-2rem)] text-lg leading-relaxed mb-5 p-4 sm:p-6"
     >
-      © 2024 Algoritmo de Hamming - Francisco Miguel Perez
+      <slot />
+    </main>
+    <footer
+      class="py-4 text-indigo-300 text-center w-full bg-gray-800 flex justify-center items-center h-[75px] sticky bottom-0"
+    >
+      <p class="text-2xl">
+        © 2024 Comunicaciones - Ing. Carrasco Algoritmo de Hamming - Francisco
+        Miguel
+      </p>
     </footer>
-  </body>
+  </body> 
 </html>
-<style is:global>
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-  main {
-    margin: auto;
-	margin-top: 40px;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-  }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-</style>
